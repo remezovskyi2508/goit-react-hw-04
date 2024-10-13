@@ -1,13 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import Modal from 'react-modal';
-import { CgCloseR } from 'react-icons/cg';
 
 import '../components/App.css';
 
 import ImageGallery from './ImageGallery/ImageGallery';
 import SearchBar from './SearchBar/SearchBar';
+import ImageModal from './ImageModal/ImageModal';
 
 import Loader from './Loader/Loader';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
@@ -99,37 +98,11 @@ function App() {
       <Toaster position="top-right" reverseOrder={true} />
       <SearchBar onSearchSubmit={handleSearchSubmit} />
       {images && <ImageGallery images={images} onImageClick={openModal} />}
-      <Modal
+      <ImageModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Image Modal"
-        className="custom-modal-content"
-        overlayClassName="overlay"
-        appElement={document.getElementById('root')}
-      >
-        {selectedImg && (
-          <>
-            <img src={selectedImg.url} alt="Selected" className="modal-image" />
-            <div className="modalInfoBar">
-              <p className="modalInfoBarItem">
-                <span className="descrName">Description:</span>{' '}
-                {selectedImg.description || 'none'}
-              </p>
-              <p className="modalInfoBarItem">
-                <span className="descrName">Likes:</span>{' '}
-                {selectedImg.likes || 0}
-              </p>
-              <p className="modalInfoBarItem">
-                <span className="descrName">Author:</span>{' '}
-                {selectedImg.author || 'none'}
-              </p>
-            </div>
-          </>
-        )}
-        <button className="btnClose" onClick={closeModal}>
-          <CgCloseR className="closerIcon" />
-        </button>
-      </Modal>
+        selectedImg={selectedImg}
+      />
       {isError && <ErrorMessage />}
       {isLoading && <Loader />}
       {!isLoading && hasMoreImages && <LoadMoreBtn onClick={handleOnClick} />}
