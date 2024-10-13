@@ -78,7 +78,7 @@ function App() {
         const { data } = await axios.get(
           `https://api.unsplash.com/search/photos/?client_id=${params.client_id}&orientation=${params.orientation}&page=${page}&per_page=${params.per_page}&query=${params.query}`
         );
-        setImages(prevImages => [...prevImages, ...data.results]); // Append images
+        setImages(prevImages => [...prevImages, ...data.results]);
         const totalPagesCalc = Math.ceil(data.total / params.per_page);
         setTotalPages(totalPagesCalc);
         setHasMoreImages(page < totalPagesCalc);
