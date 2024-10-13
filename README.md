@@ -1,6 +1,6 @@
 # HTTP + useMemo
 
-![image](https://github.com/user-attachments/assets/973cd485-ca44-4c7c-a5c9-6f1c6fb38247)
+![image](https://github.com/user-attachments/assets/7c679e08-0811-4aee-8f8e-868881e0a039)
 
 ## ДОДАТОК ПОШУКУ ЗОБРАЖЕНЬ.
 Цей Додаток для пошуку зображень дозволяє користувачам шукати та переглядати галерею високоякісних зображень, отриманих із Unsplash API. 
