@@ -1,15 +1,11 @@
 import css from './LoadMoreBtn.module.css';
 
-export default function LoadMoreBtn() {
+export default function LoadMoreBtn({ onClick }) {
   return (
-    <>
-      <button type="button">Load more</button>
-    </>
+    <div className={css.btn}>
+      <button onClick={onClick} type="button">
+        Load more
+      </button>
+    </div>
   );
 }
-
-useEffect(() =>{
-    const fetchImages = async() =>{
-        const {data} = await axios.get('https://api.unsplash.com/photos/?client_id={key}')
-    }
-})

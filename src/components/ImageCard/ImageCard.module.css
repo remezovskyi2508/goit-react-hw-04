@@ -3,6 +3,6 @@
 }
 .image {
   object-fit: cover;
-  width: 360px;
   height: 250px;
+  width: 100%;
 }
